@@ -29,6 +29,5 @@ def server(free_port):
     server_thread = threading.Thread(target=server.start)
     server_thread.start()
     yield server
-    print("shuting down server")
     server.stop()
     server_thread.join()

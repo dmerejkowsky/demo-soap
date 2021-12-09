@@ -25,7 +25,7 @@ $ poetry run python soap/client.py
 
 In `soap/client.py` - a SOAP client, written using the [zeep](https://docs.python-zeep.org/en/master/) library.
 
-In `soap/server.py` - a SOAP server, written using [sypne](http://spyne.io).
+In `soap/server.py` - a SOAP server, written using [spyne](http://spyne.io).
 
 In `./hello.wsdl`, the definition of the methods exposed by the demo server
 
