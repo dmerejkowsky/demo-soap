@@ -6,6 +6,8 @@ def test_wsdl_is_up_to_date(server):
     """Check that the source code of our SOAP service
     matches the expected schema
 
+    The purpose of this test is to let us know whenever
+    we break our server API
     """
     response = requests.get(server.wsdl_url)
     actual_xml = response.text
