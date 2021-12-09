@@ -35,3 +35,15 @@ In `./hello.wsdl`, the definition of the methods exposed by the demo server
 $ poetry run invoke lint
 $ poetry run pytest
 ```
+
+## Deployment
+
+The `Server` class uses the server from the `wsgiref.simple_server` standard
+library module, which is not suitable for production (but fine for development
+and tests).
+
+For the production environment, one may use `gunicorn`, like this:
+
+```
+$ gunicorn soap.wsgi:app -b 0.0.0.0:5678
+```

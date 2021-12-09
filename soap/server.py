@@ -14,25 +14,25 @@ class HelloWorldService(ServiceBase):
         return res
 
 
-def create_application():
-    return Application(
+def create_wsgi_application():
+    application = Application(
         [HelloWorldService],
         tns="spyne.examples.hello",
         in_protocol=Soap11(validator="lxml"),
         out_protocol=Soap11(),
     )
+    return WsgiApplication(application)
 
 
 class Server:
     def __init__(self, *, address, port):
         self.address = address
+        wsgi_application = create_wsgi_application()
         self.port = port
-        application = create_application()
-        wsgi_app = WsgiApplication(application)
         self._wsgi_server = wsgiref.simple_server.make_server(
             address,
             port,
-            wsgi_app,
+            wsgi_application,
         )
 
     @property
