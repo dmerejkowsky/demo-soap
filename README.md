@@ -16,8 +16,7 @@ $ poetry install
 # Start the server in a first shell
 $ poetry run python soap/server.py
 
-# Call the say_hello method from an
-# other shell:
+# Call the say_hello method from an other shell:
 $ poetry run python soap/client.py
 ```
 
