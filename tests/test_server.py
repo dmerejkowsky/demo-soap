@@ -15,6 +15,9 @@ def test_wsdl_is_up_to_date(server):
     actual_doc = etree.fromstring(actual_xml.encode())
     actual_tree = etree.ElementTree(actual_doc)
     actual_xml = etree.tostring(actual_tree, pretty_print=True).decode()
+    # Note: the wsdl file contains the URL of the server, so
+    # the actual_xml string will actually contain the random port used
+    # during tests - we need to replace it for the test to pass.
     actual_xml = actual_xml.replace(str(server.port), "5678")
 
     with open("hello.wsdl", "r") as f:
