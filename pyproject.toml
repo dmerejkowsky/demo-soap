@@ -1,0 +1,40 @@
+[tool.isort]
+profile = "black"
+
+[tool.poetry]
+name = "soap"
+version = "0.0.1"
+description = "SOAP demo"
+authors = ["Dimitri Merejkowsky <dimitri.merejkowsky@arolla.fr>"]
+readme = "README.md"
+license = "BSD-3-Clause"
+repository = ""
+
+[tool.poetry.dependencies]
+python = "^3.9"
+zeep = "^4.1.0"
+spyne = "^2.13.16"
+
+[tool.poetry.dev-dependencies]
+# Task runner
+invoke = "^1.5.0"
+
+# Tests
+coverage = "^5.2"
+pytest = "^6.2.1"
+pytest-cov = "^2.10"
+
+# Linters
+black = "21.10b0"
+flake8 = "3.9.2"
+flake8-bugbear = "^21.4.3"
+flake8-comprehensions = "^3.4.0"
+pep8-naming = "^0.11.1"
+isort = "^5.7.0"
+
+# Deps scanning
+safety = "^1.9.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
